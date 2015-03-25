@@ -4,7 +4,7 @@ exports.host = null;
 // string to specify this server's ip, or null to listen on any ip
 exports.ip = null;
 
-exports.port = process.env.PORT || 8080;
+exports.port = process.env.PORT || 80;
 
 // if set, GA tracking code will be inserted into the bottom of every page
 exports.google_analytics_id = process.env.GA_ID || null;
