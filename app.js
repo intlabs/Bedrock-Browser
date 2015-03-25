@@ -51,7 +51,7 @@ function handleRequest(request, response) {
     // (located at /canny/browser/proxy so that we can more easily tell the difference 
     // between a user who is looking for the home page and a "/" link)
     if (url_data.pathname == "/canny/browser/proxy") {
-        request.url = "/canny/browser/index.html";
+        request.url = "/index.html";
         return serveStatic(request, response);
     }
     // disallow almost everything via robots.txt
