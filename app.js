@@ -103,8 +103,8 @@ function handleUnknown(request, response) {
         }
 
         // we already know it doesn't start with http, so lets fix that first
-        // "/canny/browser/proxy/".length = 7
-        return response.redirectTo("/http://" + request.url.substr(7));
+        // "/canny/browser/proxy/".length = 21
+        return response.redirectTo("/http://" + request.url.substr(21));
     }
 
     // if there is no referer, then either they just got here or we can't help them
