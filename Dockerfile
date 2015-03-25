@@ -9,6 +9,8 @@ RUN yum install -y epel-release && \
 ADD . /app
 
 RUN cd /app && \
-  npm rebuild
+  npm rebuild && \
+  mv /app/start.sh /start.sh && \
+  chmod +x /start.sh
 
 ENTRYPOINT ["/start.sh"]
