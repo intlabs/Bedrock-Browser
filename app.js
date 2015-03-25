@@ -143,7 +143,7 @@ function thisHost(request) {
 
 // returns the http://site.com/proxy
 function thisSite(request) {
-    return 'http://' + thisHost(request) + '/canny/browser/proxy';
+    return '/canny/browser/proxy';
 }
 
 function redirectTo(request, response, site) {
