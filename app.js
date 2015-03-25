@@ -25,7 +25,7 @@ https.globalAgent.maxSockets = 64;
 var googleAnalytics = require('./lib/googleanalyticsstream'),
     blocklist = require('./lib/blocklist'),
     serveStatic = require('./lib/static'),
-    proxy = require('./lib/canny/browser/proxy');
+    proxy = require('./lib/proxy');
 
 // the configuration file
 var config = require('./config');
