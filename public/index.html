@@ -15,7 +15,7 @@
       
       <div id="error"></div>
 
-      <form action="/canny/browser/proxy/no-js" method="get" id="unblocker-form">
+      <form action="/proxy/no-js" method="get" id="unblocker-form">
         <p>
           URL: 
           <input type="text" id="url" name="url" autofocus="autofocus" />
@@ -40,7 +40,7 @@
 			if(url.substr(0,4) != "http"){
 				url = "http://" + url;
 			}
-			window.location.pathname = 'canny/browser/proxy/' + url;
+			window.location.pathname = 'proxy/' + url;
 			return false;
 		}
 		
