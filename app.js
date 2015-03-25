@@ -50,7 +50,7 @@ function handleRequest(request, response) {
     // if the user requested the "home" page
     // (located at /proxy so that we can more easily tell the difference 
     // between a user who is looking for the home page and a "/" link)
-    if (url_data.pathname == "/proxy") {
+    if (url_data.pathname == "/canny/browser/proxy") {
         request.url = "/index.html";
         return serveStatic(request, response);
     }
@@ -60,7 +60,7 @@ function handleRequest(request, response) {
     }
 
     // this is for users who's form actually submitted due to JS being disabled
-    if (url_data.pathname == "/proxy/no-js") {
+    if (url_data.pathname == "/canny/browser/proxy/no-js") {
         // grab the "url" parameter from the querystring
         var site = querystring.parse(url.parse(request.url)
             .query)
@@ -71,7 +71,7 @@ function handleRequest(request, response) {
 
     // only requests that start with this get proxied - the rest get 
     // redirected to either a url that matches this or the home page
-    if (url_data.pathname.indexOf("/proxy/http") === 0) {
+    if (url_data.pathname.indexOf("/canny/browser/proxy/http") === 0) {
 
         var uri = url.parse(proxy.getRealUrl(request.url));
         // make sure the url in't blocked
@@ -96,15 +96,15 @@ function handleRequest(request, response) {
  */
 function handleUnknown(request, response) {
 
-    if (request.url.indexOf('/proxy/') === 0) {
+    if (request.url.indexOf('/canny/browser/proxy/') === 0) {
         // no trailing slashes
-        if (request.url == "/proxy/") {
+        if (request.url == "/canny/browser/proxy/") {
             return response.redirectTo("");
         }
 
         // we already know it doesn't start with http, so lets fix that first
-        // "/proxy/".length = 7
-        return response.redirectTo("/http://" + request.url.substr(7));
+        // "/canny/browser/proxy/".length = 21
+        return response.redirectTo("/http://" + request.url.substr(21));
     }
 
     // if there is no referer, then either they just got here or we can't help them
@@ -120,7 +120,7 @@ function handleUnknown(request, response) {
     }
 
     // now we know where they came from, so we can do something for them
-    if (ref.pathname.indexOf('/proxy/http') === 0) {
+    if (ref.pathname.indexOf('/canny/browser/proxy/http') === 0) {
         var real_url = url.parse(proxy.getRealUrl(ref.pathname));
 
         // now, take the requested pat on the previous known host and send the user on their way
@@ -143,7 +143,7 @@ function thisHost(request) {
 
 // returns the http://site.com/proxy
 function thisSite(request) {
-    return 'http://' + thisHost(request) + '/proxy';
+    return 'http://' + thisHost(request) + '/canny/browser/proxy';
 }
 
 function redirectTo(request, response, site) {
