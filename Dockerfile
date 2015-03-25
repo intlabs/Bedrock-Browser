@@ -13,4 +13,6 @@ RUN cd /app && \
   mv /app/start.sh /start.sh && \
   chmod +x /start.sh
 
+EXPOSE 80
+
 ENTRYPOINT ["/start.sh"]
