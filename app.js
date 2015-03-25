@@ -154,16 +154,7 @@ function redirectTo(request, response, site) {
     if (site.substr(0, 20) == "/canny/browser/proxy") { // no /proxy/proxy redirects
         site = site.substr(20);
     }
-    if (site == "/") site = ""; // no endless redirect loops
-    try {
-        response.writeHead(307, {
-            'Location': thisSite(request) + site
-        });
-        //console.log("recirecting to " + thisSite(request) + site);
-    } catch (ex) {
-        // the headers were already sent - we can't redirect them
-        console.error("Failed to send redirect", ex);
-    }
+
     response.end();
 }
 
