@@ -151,8 +151,8 @@ function redirectTo(request, response, site) {
     if (site.length && site.substr(0, 1) != "/" && site.substr(0, 1) != "?") {
         site = "/" + site;
     }
-    if (site.substr(0, 6) == "/proxy") { // no /proxy/proxy redirects
-        site = site.substr(6);
+    if (site.substr(0, 20) == "/canny/browser/proxy") { // no /proxy/proxy redirects
+        site = site.substr(20);
     }
     if (site == "/") site = ""; // no endless redirect loops
     try {
