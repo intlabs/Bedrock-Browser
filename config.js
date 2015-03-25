@@ -1,5 +1,5 @@
 // just "site.com" or "site.com:port", no "http://"
-exports.host = null;
+exports.host = '188.226.129.73';
 
 // string to specify this server's ip, or null to listen on any ip
 exports.ip = null;
